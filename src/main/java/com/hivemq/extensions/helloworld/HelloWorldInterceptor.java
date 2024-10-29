@@ -29,11 +29,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 import java.util.Optional;
 /**
- * This is a very simple {@link PublishInboundInterceptor},
- * it changes the payload of every incoming PUBLISH with the topic 'hello/world' to 'Hello World!'.
  *
- * @author Yannick Weber
- * @since 4.3.1
+ * @author Dasha Samkova
+ * @since 4.33.1
  */
 public class HelloWorldInterceptor implements PublishInboundInterceptor {
 

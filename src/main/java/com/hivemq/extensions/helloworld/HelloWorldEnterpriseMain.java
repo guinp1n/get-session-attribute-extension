@@ -18,12 +18,9 @@ import java.util.Random;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
- * This is the main class of the enterprise extension,
- * which is instantiated either during the HiveMQ start up process (if extension is enabled)
- * or when HiveMQ is already started by enabling the extension.
  *
- * @author Florian Limpöck
- * @since 4.4.0
+ * @author Dasha Samkova
+ * @since 4.33.1
  */
 public class HelloWorldEnterpriseMain implements ExtensionMain {
 
