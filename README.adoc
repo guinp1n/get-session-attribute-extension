@@ -1,0 +1,11 @@
+= HiveMQ 4 Hello World Enterprise Extension
+
+image:https://img.shields.io/badge/Extension_Type-Demonstration-orange?style=for-the-badge[Extension Type]
+
+== Installation
+
+. Clone this repository into a Java 11 Gradle project.
+. Execute the Gradle task `hivemqEnterpriseExtensionZip` to build the extension.
+. Move the file: `build/hivemq-extension/hivemq-hello-world-enterprise-extension-4.33.1.zip` to the directory: `HIVEMQ_HOME/extensions`
+. Unzip the file.
+. Start HiveMQ.
