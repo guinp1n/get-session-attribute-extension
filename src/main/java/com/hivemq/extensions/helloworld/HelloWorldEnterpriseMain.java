@@ -35,24 +35,7 @@ public class HelloWorldEnterpriseMain implements ExtensionMain {
             final @NotNull ExtensionStartOutput extensionStartOutput) {
 
         try {
-            addClientLifecycleEventListener();
             addPublishModifier();
-
-            //just an enterprise usage example.
-            final SessionAttributeStore sessionAttributeStore = EnterpriseServices.sessionAttributeStore();
-
-            sessionAttributeStore.put("subscriber-0", "short-key", ByteBuffer.wrap("short-ascii-value".getBytes(UTF_8)));
-            sessionAttributeStore.put("subscriber-0", "long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-long-key-",
-                    ByteBuffer.wrap("long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-long-ascii-value-".getBytes(UTF_8)));
-            sessionAttributeStore.put("subscriber-0", "another-short-key", ByteBuffer.wrap(getRandomBytes(500)));
-            sessionAttributeStore.put("subscriber-0", "short-key-the-third", ByteBuffer.wrap(getRandomBytes(15)));
-            for (int i = 0; i < 100; i++) {
-                if (i % 2 == 0) {
-                    sessionAttributeStore.put("subscriber-0", "short-key-" + i, ByteBuffer.wrap(getRandomBytes(15 * i)));
-                } else {
-                    sessionAttributeStore.put("subscriber-0", "short-key-" + i, ByteBuffer.wrap(RandomStringUtils.randomAlphanumeric(10 * i).getBytes(UTF_8)));
-                }
-            }
 
             final ExtensionInformation extensionInformation = extensionStartInput.getExtensionInformation();
             log.info("Started " + extensionInformation.getName() + ":" + extensionInformation.getVersion());
@@ -76,14 +59,6 @@ public class HelloWorldEnterpriseMain implements ExtensionMain {
 
         final ExtensionInformation extensionInformation = extensionStopInput.getExtensionInformation();
         log.info("Stopped " + extensionInformation.getName() + ":" + extensionInformation.getVersion());
-    }
-
-    private void addClientLifecycleEventListener() {
-        final EventRegistry eventRegistry = Services.eventRegistry();
-
-        final HelloWorldListener helloWorldListener = new HelloWorldListener();
-
-        eventRegistry.setClientLifecycleEventListener(input -> helloWorldListener);
     }
 
     private void addPublishModifier() {
